@@ -1,14 +1,14 @@
-#include <stdio.h>
+#include "fatorial.h"
 
-// Função que calcula o fatorial de um número inteiro
-int fatorial(int n) {
-    if (n < 0) {
-        return -1; // Retorna -1 para indicar erro (número negativo)
-    }
+unsigned long long fatorial(int n) {
+    if (n < 0) return 0; // Entrada inválida
+    if (n == 0) return 1ULL;
 
-    int resultado = 1;
+    unsigned long long resultado = 1ULL;
+
     for (int i = 1; i <= n; i++) {
         resultado *= i;
     }
+
     return resultado;
 }
