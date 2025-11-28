@@ -1,17 +1,17 @@
+#include <assert.h>
 #include <stdio.h>
-#include "fatorial.c" // Importa a função
+#include "fatorial.h"
 
-int main() {
-    printf("Testes da função fatorial:\n");
+int main(void) {
+ 
+    assert(fatorial(0) == 1ULL);
+    assert(fatorial(1) == 1ULL);
+    assert(fatorial(2) == 2ULL);
+    assert(fatorial(5) == 120ULL);
+    assert(fatorial(10) == 3628800ULL);
 
-    // Teste 1: fatorial de 0 deve ser 1
-    printf("fatorial(0) = %d (esperado: 1)\n", fatorial(0));
+    assert(fatorial(-1) == 0ULL);
 
-    // Teste 2: fatorial de 5 deve ser 120
-    printf("fatorial(5) = %d (esperado: 120)\n", fatorial(5));
-
-    // Teste 3: número negativo deve retornar -1
-    printf("fatorial(-3) = %d (esperado: -1)\n", fatorial(-3));
-
+    printf("Todos os testes passaram!\n");
     return 0;
 }
