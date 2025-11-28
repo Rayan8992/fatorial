@@ -1,4 +1,4 @@
-name: Compilar e testar código C
+name: Teste Fatorial
 
 on:
   push:
@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout do repositório
+    - name: Baixar repositório
       uses: actions/checkout@v3
 
-    - name: Compilar fatorial_test.c
-      run: gcc fatorial_test.c -o fatorial_test
+    - name: Instalar GCC
+      run: sudo apt-get install gcc
 
-    - name: Executar o teste
-      run: ./fatorial_test
+    - name: Compilar testes
+      run: gcc fatorial.c fatorial_test.c -o teste
+
+    - name: Executar testes
+      run: ./teste
